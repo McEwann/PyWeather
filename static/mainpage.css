@@ -1,0 +1,21 @@
+
+.bg {
+  opacity: 0.8;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  z-index: -1;
+}
+
+.contense
+{
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}

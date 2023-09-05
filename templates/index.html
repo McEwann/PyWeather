@@ -1,0 +1,38 @@
+<!--TO DO add more comments, kekw-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+    <link rel="shortcut icon" href="static/favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='mainpage.css') }}">
+</head>
+<body>
+    <div class="contense">
+        <!--If Statements for bg image changing with the returned weather-->
+        {% if weather == "Clear" %}
+        <img class="bg"src="/static/images/sunny.gif" alt="Clear">
+        {% elif weather == "Clouds" %}
+        <img class="bg"src="/static/images/clouds.gif" alt="Clouds">
+        {% elif weather == "Rain" %}
+        <img class="bg"src="/static/images/rain.gif" alt="Rainy">
+        {% else %}
+        <img class="bg"src="/static/images/default.gif" alt="Default">
+        {% endif %}
+        <!--Main displayed content-->
+        <h1>Weather App</h1>
+        <form method="POST">
+            <label for="city">Enter city name: </label>
+            <input type="text" name="city" required>
+            <button type="submit">Get Weather</button>
+        </form>
+        <!--Error Handling-->
+        {% if error_message %}
+        <p>{{ error_message }}</p>
+        {% endif %}
+        <!--Pull returned weather info from app.py-->
+        {% if city and weather and temp %}
+        <p>The weather in {{ city }} is {{ weather }} with a temperature of {{ temp }}°C.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
